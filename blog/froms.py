@@ -10,18 +10,15 @@ ______ |  |__   ____   ____   ____ |__|__  ___
 @author:Phoenix
 @file:mysite
 @ide:PyCharm
-@time2:2019/10/28 14:02
+@time2:2019/10/28 16:53
 @month2:十月
 @email:datacraft@163.com
 """
-from django.urls import path
+from django import forms
 
-from blog import views
 
-app_name='blog'
-
-urlpatterns = [
-    # path('',views.post_list,name='post_list'),
-    path('',views.PostListView.as_view(),name='post_list'),
-    path('<int:year>/<int:month>/<int:day>/<slug:post>/',views.post_detail,name='post_detail'),
-]
+class EmailPostForm(forms.Form):
+    name=forms.CharField(max_length=25)
+    email=forms.EmailField()
+    to=forms.EmailField()
+    comments=forms.CharField(required=False,widget=forms.Textarea)
