@@ -122,3 +122,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[os.path.join('BASE_DIR','static')]
+
+# Email Setting
+EMALL_BACKEND='django.core.mail.backends.console.EmailBackend'
+EMALL_HOST='smtp.126.com'
+EMALL_HOST_USER='datacraft@126.com'
+EMALL_HOST_PASSWORD='123457896yu'
+EMALL_PORT=465
+EMALL_USER_TLS=True
+
