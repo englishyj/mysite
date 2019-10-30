@@ -9,6 +9,14 @@
     </p>
     {{ posts.body|linebreaks }}
     <p>
+    <h2>相关文章</h2>
+    {% for post in similar_posts %}
+        <p>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </p>
+    {% empty %}
+        未找到相似的文件。
+    {% endfor %}
     {% with comments.count as total_comments %}
     <h2>
         评论数 {{ total_comments }} 条:
