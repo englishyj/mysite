@@ -5,20 +5,20 @@
 {% block content %}
     <h1>{{ posts.title }}</h1>
     <p class="date">
-    Published {{ posts.publish }} by {{ posts.author }}
+    上传时刻: {{ posts.publish }} 作者: {{ posts.author }}
     </p>
     {{ posts.body|linebreaks }}
     <p>
     {% with comments.count as total_comments %}
     <h2>
-        {{ total_comments }} comment {{total_comments|pluralize}}
+        评论数 {{ total_comments }} 条:
+{#        {{ total_comments }} 评论数 {{total_comments|pluralize}}#}
     </h2>
     {% endwith %}
     {% for comment in comments %}
         <div class="comment">
         <p class="info">
-            Comment {{ forloop.counter }} by {{ comment.name }}
-            {{ comment.created }}
+            评论: {{ forloop.counter }} 作者: {{ comment.name }} 时间: {{ comment.created }}
         </p>
         {{ comment.body|linebreaks }}
         </div>
