@@ -10,12 +10,12 @@ from taggit.models import Tag
 from blog.froms import EmailPostForm, CommentForm
 from blog.models import Post
 
-def post_list(request,tag_sulg=None):
+def post_list(request,tag_slug=None):
     object_list=Post.published.all()
     tag=None
 
-    if tag_sulg:
-        tag=get_object_or_404(Tag,slug=tag_sulg)
+    if tag_slug:
+        tag=get_object_or_404(Tag,slug=tag_slug)
         object_list=object_list.filter(tags__in=[tag])
     paginator=Paginator(object_list,3)
     page=request.GET.get('page')

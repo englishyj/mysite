@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-
+{% load blog_tags %}
 {% block title %}{{ posts.title }}{% endblock %}
 
 {% block content %}
@@ -7,7 +7,8 @@
     <p class="date">
     上传时刻: {{ posts.publish }} 作者: {{ posts.author }}
     </p>
-    {{ posts.body|linebreaks }}
+{#    {{ posts.body|linebreaks }}#}
+    {{ posts.body|markdown }}
     <p>
     <h2>相关文章</h2>
     {% for post in similar_posts %}
