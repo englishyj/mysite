@@ -4,12 +4,12 @@
 
 {% block content %}
     {% if sent %}
-        <h1>E-mail successfully</h1>
+        <h1>E-mail 发送成功!</h1>
         <p>
         "{{ posts.title }}" was successfully sent to {{ form.changed_data.to }}.
         </p>
     {% else %}
-        <h1>Share "{{ posts.title }}" by e-mail</h1>
+        <h1>通过e-mail 分享 "{{ posts.title }}" </h1>
         <form action="." method="post">
                 {% for field in form %}
                 <div>
